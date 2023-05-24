@@ -1,0 +1,49 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groupie tracker</title>
+  <link rel="stylesheet" href="/template/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Groupie Tracker</h1>
+    </header>
+    <div class="main-part">
+      <div class="elements">
+
+        {{range . }}
+        <div class="artist">
+
+          <a href="/artist/{{.Id}}">
+            <img class="artist-Image center" src="{{.Image}}"></img>
+          </a>
+          <div class="artist-Info">
+            <h3>{{.Name}}</h3>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+    <footer>
+      <h1>Copyright © 2023 AnMe Inc. All rights reserved.</h1>
+    </footer>
+  </div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+</body>
+
+</html>
+{{end}}

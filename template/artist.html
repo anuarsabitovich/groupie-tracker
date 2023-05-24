@@ -1,0 +1,67 @@
+
+{{define "artist"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist</title>
+    <link rel="stylesheet" href="/template/styles.css">
+
+</head>
+<body>
+
+    <div class="artist-page">
+        <div class="general-margin">
+            <h1> {{.Name}} </h1>
+        </div>
+
+        <div class="img-container"> 
+    <img class ="artist-Image center image" src="{{.Image}}"></img>
+        </div>
+
+    <div class="general-margin ">
+        <h2>{{.Name}} started career in {{.CreationDate}} </h2>
+    </div>
+
+    <div class="general-margin">
+        <h2>First album was released in {{.FirstAlbum}}  </h2>     
+    </div>
+    
+    {{if gt (len .Members) 1}}
+    <div class="general-margin">
+        <h2> Band Members: </h2>
+        {{range .Members }}
+        <h3>{{.}}  </h3> 
+        {{end}}
+        {{end}}
+    </div>
+   
+        <h2>Concert Dates</h2>
+    <!-- <div class="general-margin"> -->
+        <div class="elements" >
+
+        {{range $key, $value := .DatesLocations }}
+            <div class="artist artist-border" >
+            <h4> {{$key}} </h4>
+            <h5>
+                {{range $value}}
+                <p> {{.}} </p>
+                {{end}}
+            <h5>
+
+            </div>
+            {{end}}
+
+        </div>
+    <!-- </div> -->
+  
+    </div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+</body>
+
+</html>
+{{end}}
